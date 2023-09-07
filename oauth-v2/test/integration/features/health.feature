@@ -56,4 +56,3 @@ Feature: API proxy core
         And response header Content-Type should be application/json
         And response body should contain access_token
         And response body path $.status should be approved
-
