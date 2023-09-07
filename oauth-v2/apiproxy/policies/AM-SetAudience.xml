@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetAudience">
+  <AssignVariable>
+    <!-- As per the spec, the token URL can be used as the audience  -->
+    <!-- https://tools.ietf.org/id/draft-ietf-oauth-jwt-bearer-02.html#rfc.section.3 -->
+    <Name>audience</Name>
+    <Template>https://{request.header.host}{proxy.basepath}/token</Template>
+    <Ref/>
+  </AssignVariable>
+</AssignMessage>

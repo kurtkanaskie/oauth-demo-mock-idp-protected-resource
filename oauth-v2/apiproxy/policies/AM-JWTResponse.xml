@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-JWTResponse">
+  <Set>
+    <Headers/>
+    <QueryParams/>
+    <FormParams/>
+    <Payload contentType="application/json">
+{
+    "jwt":"{jwt}"
+}
+</Payload>
+  </Set>
+</AssignMessage>

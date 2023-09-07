@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-TokenInfo">
+    <DisplayName>AM-TokenInfo</DisplayName>
+    <Set>
+        <Payload contentType="application/json">
+{
+    "api_product": "{apiproduct.name}",
+    "api_products": "{app.apiproducts}",
+    "externalUsernameNoPrefix": "{accesstoken.externalUsername}",
+    "externalAccessTokenNoPrefix": "{accesstoken.externalAccessToken}",
+    "organization_name": "{organization.name}",
+    "developer.email": "{apigee.developer.email}",
+    "token_type": "Bearer",
+    "issued_at": "{issued_at}",
+    "client_id": "{apigee.client_id}",
+    "access_token": "{apigee.access_token}",
+    "application_name": "{apigee.developer.app.name}",
+    "scope": "{scope}",
+    "expires_in": "{expires_in}",
+    "refresh_token_status": "{refresh_token_status}",
+    "refresh_token_expires_in": "{refresh_token_expires_in}",
+    "refresh_count": "{refresh_count}",
+    "refresh_token": "{refresh_token}",
+    "status": "{status}",
+    "externalAccessToken":"{externalAccessToken}",
+    "externalUsername":"{externalUsername}"
+}
+</Payload>
+    </Set>
+</AssignMessage>

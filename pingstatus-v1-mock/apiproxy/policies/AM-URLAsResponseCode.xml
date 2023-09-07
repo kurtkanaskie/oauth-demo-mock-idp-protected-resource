@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-URLAsResponseCode">
+    <DisplayName>AM-URLAsResponseCode</DisplayName>
+    <Set>
+        <Payload contentType="application/json">
+{
+  "region":"{system.region.name}",
+  "uri" : "{client.scheme}://{request.header.host}{request.uri}",
+  "status" : "OK"
+}
+</Payload>
+        <ReasonPhrase>Set from path suffix</ReasonPhrase>
+        <StatusCode>{substring(proxy.pathsuffix,1)}</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

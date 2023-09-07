@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DecodeJWT async="false" continueOnError="false" enabled="true" name="JW-Decode">
+    <DisplayName>JW-Decode</DisplayName>
+    <!-- Decode to get the prn which is the client_id -->
+    <Source>request.formparam.assertion</Source>
+</DecodeJWT>

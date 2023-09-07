@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JS-SetJWTExpiration">
+    <DisplayName>JS-SetJWTExpiration</DisplayName>
+    <Properties/>
+    <Source>
+        var currentTimeInMS = context.getVariable( "system.timestamp" );
+        var jwtExpiresInMS = context.getVariable( "jwt.JW-VerifyAssertion.claim.expiry" );
+        var expiresInMS = jwtExpiresInMS - currentTimeInMS;
+        context.setVariable("externalExpiresIn",Number(expiresInMS).toString());
+    </Source>
+</Javascript>

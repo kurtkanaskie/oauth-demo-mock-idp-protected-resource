@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-URLAsResponseCode">
+    <DisplayName>RF-URLAsResponseCode</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json">
+{
+  "region":"{system.region.name}",
+  "uri" : "{client.scheme}://{request.header.host}{request.uri}",
+  "status" : "ERROR"
+}
+</Payload>
+            <ReasonPhrase>Set from path suffix</ReasonPhrase>
+            <StatusCode>{substring(proxy.pathsuffix,1)}</StatusCode>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

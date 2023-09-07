@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-StatusResponse">
+  <DisplayName>AM-StatusResponse</DisplayName>
+  <Properties/>
+  <Set>
+    <Payload contentType="application/json">
+{
+    "backend_organization": "{organization.name}",
+    "backend_environment": "{environment.name}",
+    "uri" : "{client.scheme}://{request.header.host}{request.uri}",
+    "tls.protocol":"{tls.protocol}",
+    "tls.cipher":"{tls.cipher}",
+    "x-forwarded-for":"{request.header.x-forwarded-for}",
+    "time": "{system.time}",
+    "status" : "OK"
+}
+</Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

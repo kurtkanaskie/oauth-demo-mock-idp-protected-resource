@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AccessControl async="false" continueOnError="false" enabled="false" name="AC-WhitelistNAT">
+  <IPRules noRuleMatchAction="DENY">
+    <MatchRule action="ALLOW">
+      <!-- apigeex-mint-kurt -->
+      <SourceAddress mask="32">35.196.131.149</SourceAddress>
+      <!-- Mac -->
+      <SourceAddress mask="32">131.106.40.233</SourceAddress>
+    </MatchRule>
+  </IPRules>
+  <!-- works by istelf <ClientIPVariable>request.header.x-forwarded-for</ClientIPVariable> -->
+  <!-- These work together -->
+  <ValidateBasedOn>X_FORWARDED_FOR_FIRST_IP</ValidateBasedOn>
+  <IgnoreTrueClientIPHeader>true</IgnoreTrueClientIPHeader>
+  <!-- -->
+  <!-- not by itself <ValidateBasedOn>X_FORWARDED_FOR_FIRST_IP</ValidateBasedOn> -->
+  <!-- not by itself <IgnoreTrueClientIPHeader>true</IgnoreTrueClientIPHeader> -->
+</AccessControl>

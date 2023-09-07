@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-JWTPrivateKey">
+    <!-- Hack, this should come from an encrypted KVM, value is used by oauth-v2 proxy -->
+    <AssignVariable>
+        <Name>private.key</Name>
+        <Value>SuperSecretKey</Value>
+    </AssignVariable>
+</AssignMessage>

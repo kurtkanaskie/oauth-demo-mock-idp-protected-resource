@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Debug">
+    <AssignVariable>
+        <Name>request_header_authorization</Name>
+        <Value>NOT PRESENT</Value>
+        <Ref>request.header.authorization</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

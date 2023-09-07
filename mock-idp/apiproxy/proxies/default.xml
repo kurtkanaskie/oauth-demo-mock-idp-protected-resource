@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="status">
+            <Description>status</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-StatusResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Token - Client Credentials">
+            <Description/>
+            <Condition>(request.verb = "POST") and (proxy.pathsuffix MatchesPath "/token") and (request.formparam.grant_type = "client_credentials")</Condition>
+            <Request>
+                <!-- Simply accept anything from either form params or Auth Basic -->
+                <Step>
+                    <Condition>
+                        ((request.formparam.client_id == null) OR (request.formparam.client_secret == null))
+                        AND
+                        (request.header.authorization == null)
+                    </Condition>
+                    <Name>RF-AppAuthenticateFailed</Name>
+                </Step>
+                <Step>
+                    <Name>AM-JWTPrivateKey</Name>
+                </Step>
+                <Step>
+                    <Name>JW-Generate</Name>
+                </Step>
+                <Step>
+                    <Name>OA-GenerateAccessToken-ClientCredentials</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+        <Flow name="Token - Password">
+            <Description/>
+            <Request>
+                <Step>
+                    <Condition>(request.formparam.username != "demouser") OR (request.formparam.password != "demouser1")</Condition>
+                    <Name>RF-UserAutenticateFailed</Name>
+                </Step>
+                <Step>
+                    <Name>OA-GenerateAccessToken-Password</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(request.verb = "POST") and (proxy.pathsuffix MatchesPath "/token") and (request.formparam.grant_type = "password")</Condition>
+        </Flow>
+        <Flow name="catch all">
+            <Description>Catch any unmatched calls and raise fault</Description>
+            <Request>
+                <Step>
+                    <Name>RF-NotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/**")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/mock-idp/v2</BasePath>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

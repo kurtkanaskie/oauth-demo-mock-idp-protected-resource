@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>apigee</groupId>
+  <artifactId>oauth-v2-demo-mock-idp</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>oauth-v2-demo-mock-idp</name>
+  <description>OAuth V2 Proxy for Client Credentials and Password Grant using oauth-v2, mock-idp and pingstatus-v1-oauth</description>
+  
+  <!-- Caveat: 
+      config items that use a path to a file (e.g. JavaScript, PropertySet)
+      will need to be prefixed from the local module with "../" and from here with "./"
+      The replacer is being used to do this via the target.root.prefix variable
+      here: "mvn -P dev install -Dtarget.root.prefix=."
+      module: "mvn -P dev install" - defaults to ..
+  -->
+  <modules>
+    <module>mock-idp</module>
+    <module>oauth-v2</module>
+    <module>pingstatus-v1-mock</module>
+    <module>pingstatus-v1-oauth</module>
+  </modules>
+</project>

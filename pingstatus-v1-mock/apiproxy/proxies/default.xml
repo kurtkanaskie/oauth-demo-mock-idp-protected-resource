@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description/>
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>AM-Debug</Name>
+      </Step>
+      <Step>
+        <Name>AC-WhitelistNAT</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows>
+    <Flow name="status">
+      <Description>status</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-StatusResponse</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="status">
+      <Description>status</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-StatusResponse</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "POST")</Condition>
+    </Flow>
+    <Flow name="healthcheck">
+      <Description>healthcheck</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-StatusResponse</Name>
+        </Step>
+      </Response>
+      <Condition>((proxy.pathsuffix MatchesPath "/healthcheck") OR (proxy.pathsuffix MatchesPath "/ping")) and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="success pathsuffix as response code">
+      <Description>responseCode</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-URLAsResponseCode</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix JavaRegex "/[2-3]\d\d") and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="error pathsuffix as response code">
+      <Description>responseCode</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>RF-URLAsResponseCode</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix JavaRegex "/[4-5]\d\d") and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="catch-all">
+      <Description>catch-all</Description>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>RF-NotFound</Name>
+        </Step>
+      </Response>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/pingstatus-mock/v1</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="noroute"/>
+</ProxyEndpoint>

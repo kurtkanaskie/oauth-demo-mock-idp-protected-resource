@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateJWT async="false" continueOnError="false" enabled="true" name="JW-Create">
+    <DisplayName>JW-Create</DisplayName>
+    <!-- https://tools.ietf.org/id/draft-ietf-oauth-jwt-bearer-02.html -->
+    <!--
+    The JWT MUST contain an iss (issuer) claim that contains a unique identifier for the entity that issued the JWT.
+    The JWT MUST contain a prn (principal) claim identifying the subject of the transaction. 
+        The principal MAY identify the resource owner for whom the access token is being requested. 
+        For client authentication, the principal MUST be the client_id of the OAuth client. 
+        When using a JWT as an authorization grant, the principal SHOULD identify an authorized accessor for whom the access token is being requested (typically the resource owner, or an authorized delegate).
+    The JWT MUST contain an aud (audience) claim containing a URI reference that identifies the authorization server, or the service provider principal entity of its controlling domain, as an intended audience. 
+        The token endpoint URL of the authorization server MAY be used as an acceptable value for an aud element. 
+        The authorization server MUST verify that it is an intended audience for the JWT.
+    The JWT MUST contain an exp (expiration) claim that limits the time window during which the JWT can be used. 
+        The authorization server MUST verify that the expiration time has not passed, subject to allowable clock skew between systems. The authorization server MAY reject JWTs with an exp claim value that is unreasonably far in the future.
+    The JWT MAY contain an nbf (not before) claim that identifies the time before which the token MUST NOT be accepted for processing.
+    The JWT MAY contain an iat (issued at) claim that identifies the time at which the JWT was issued. The authorization server MAY reject JWTs with an iat claim value that is unreasonably far in the past.
+    The JWT MAY contain a jti (JWT ID) claim that provides a unique identifier for the token. The authorization server MAY ensure that JWTs are not replayed by maintaining the set of used jti values for the length of time for which the JWT would be considered valid based on the applicable exp instant.
+    The JWT MAY contain other claims.
+    The JWT MUST be digitally signed by the issuer and the authorization server MUST verify the signature.
+    The authorization server MUST verify that the JWT is valid in all other respects per JSON Web Token (JWT) [JWT].
+    -->
+    <Algorithm>HS256</Algorithm>
+    <SecretKey>
+        <Value ref="private.key"/>
+    </SecretKey>
+    <Issuer>urn://apigee-edge-JWT-policy-test</Issuer>
+    <Audience ref="audience"/>
+    <ExpiresIn>5m</ExpiresIn>
+    <AdditionalClaims>
+        <Claim name="prn" type="string" ref="request.formparam.prn"/>
+        <Claim name="client_id" type="string" ref="request.formparam.client_id"/>
+    </AdditionalClaims>
+    <OutputVariable>jwt</OutputVariable>
+</GenerateJWT>

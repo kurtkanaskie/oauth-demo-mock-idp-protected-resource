@@ -1,0 +1,46 @@
+[
+    {
+    "name": "mock-idp-product-APIGEE_ENVIRONMENT",
+    "displayName": "mock-idp-product-APIGEE_ENVIRONMENT",
+    "approvalType": "auto",
+    "attributes": [
+        {
+            "name": "access",
+            "value": "internal"
+        }
+    ],
+    "description": "Product to test mock-idp API in APIGEE_ENVIRONMENT env",
+    "environments": [
+        "test"
+    ],
+    "operationGroup": {
+        "operationConfigs": [
+            {
+                "apiSource": "mock-idp",
+                "operations": [
+                    {
+                        "resource": "/token",
+                        "methods": [
+                            "POST"
+                        ]
+                    }
+                ],
+                "quota": {}
+            },
+            {
+                "apiSource": "mock-idp",
+                "operations": [
+                    {
+                        "resource": "/status",
+                        "methods": [
+                            "GET"
+                        ]
+                    }
+                ],
+                "quota": {}
+            }
+        ],
+        "operationConfigType": "proxy"
+    }
+}
+]

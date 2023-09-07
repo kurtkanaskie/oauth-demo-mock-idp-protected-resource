@@ -1,0 +1,7 @@
+{
+    "apiconfig": {
+        "domain": "API_NORTHBOUND_DOMAIN",
+        "basepath": "/pingstatus-mock/v1",
+        "apiproxy": "pingstatus-mock-v1"
+    }
+}

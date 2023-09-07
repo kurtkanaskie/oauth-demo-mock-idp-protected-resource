@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-NotFound">
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+{
+    "error":"not_found",
+    "error_description":"Resource not found at {proxy.pathsuffix}"
+}
+</Payload>
+      <StatusCode>404</StatusCode>
+      <ReasonPhrase>RF-NotFound</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

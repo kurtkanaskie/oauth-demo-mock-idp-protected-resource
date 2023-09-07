@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-NotFound">
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="text/plain">Resource not found at {proxy.pathsuffix}</Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>RF-NotFound</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+</RaiseFault>

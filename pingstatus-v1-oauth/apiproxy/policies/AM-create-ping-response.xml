@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-create-ping-response">
+    <Set>
+        <Payload contentType="application/json">
+{
+    "environment": "{environment.name}",
+    "apiproxy": "{apiproxy.name}",
+    "client": "{client.host}",
+    "app":"{app.name}",
+    "time": "{system.time}",
+    "latency": "{total_request_time}",
+    "message":"PONG"
+}
+</Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

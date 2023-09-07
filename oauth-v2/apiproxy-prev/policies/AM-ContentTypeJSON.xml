@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ContentTypeJSON">
+    <DisplayName>AM-ContentTypeJSON</DisplayName>
+    <!-- Needed so that EV-Error works, since Content-Type isn't set -->
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+    </Set>
+</AssignMessage>

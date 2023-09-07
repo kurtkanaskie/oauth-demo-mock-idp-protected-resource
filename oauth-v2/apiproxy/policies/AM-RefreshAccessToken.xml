@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RefreshAccessToken">
+  <Set>
+    <Headers/>
+    <Payload contentType="application/json">
+{
+    "api_product_list": "{oauthv2accesstoken.OA-RefreshAccessToken.api_product_list}",
+    "api_product_list_json": [
+        "{oauthv2accesstoken.OA-RefreshAccessToken.api_product_list_json}"
+    ],
+    "externalUsername": "{externalUsername}",
+    "externalAccessToken": "{externalAccessToken}",
+    "organization_name": "{organization.name}",
+    "developer.email": "{apigee.developer.email}",
+    "token_type": "Bearer",
+    "issued_at": {oauthv2accesstoken.OA-RefreshAccessToken.issued_at},
+    "expires_in": {oauthv2accesstoken.OA-RefreshAccessToken.expires_in},
+    "client_id": "{apigee.client_id}",
+    "access_token": "{apigee.access_token}",
+    "application_name": "{apigee.developer.app.name}",
+    "scope": "{oauthv2accesstoken.OA-RefreshAccessToken.scope}",
+    "refresh_token_status": "{oauthv2accesstoken.OA-RefreshAccessToken.refresh_token_status}",
+    "refresh_token_expires_in": "{oauthv2accesstoken.OA-RefreshAccessToken.refresh_token_expires_in}",
+    "refresh_count": "{oauthv2accesstoken.OA-RefreshAccessToken.refresh_count}",
+    "refresh_token": "{oauthv2accesstoken.OA-RefreshAccessToken.refresh_token}",
+    "status": "{oauthv2accesstoken.OA-RefreshAccessToken.status}"
+}
+</Payload>
+  </Set>
+</AssignMessage>

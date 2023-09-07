@@ -1,0 +1,176 @@
+// A simple approach to managing config items, however, doesn't work across multiple orgs, therefore use resources folder approach
+{
+    "version": "1.0",
+    "apiConfig": {
+    },
+    "envConfig": {
+        "test": {
+            "targetServers": [
+                {
+                    "name": "pingstatus-baas-v1",
+                    "host": "kurtkanaskietrainer-trial-test.apigee.net",
+                    "isEnabled": true,
+                    "port": 443,
+                    "sSLInfo": {
+                        "ciphers": [],
+                        "clientAuthEnabled": "false",
+                        "enabled": "true",
+                        "ignoreValidationErrors": false,
+                        "protocols": []
+                    }
+                }
+            ],
+            "caches": [],
+            "kvms": [
+                {
+                    "name": "pingstatus-baas-v1",
+                    "encrypted": false,
+                    "entry": [
+                        {
+                            "name": "target.basepath",
+                            "value": "pingstatusmock/v1"
+                        },
+                        {
+                            "name": "target.pathsuffix",
+                            "value": "status"
+                        }
+                    ]
+                }
+            ]
+        },
+        "prod": {
+            "targetServers": [
+                {
+                    "name": "pingstatus-baas-v1",
+                    "host": "apibaas-trial.apigee.net",
+                    "isEnabled": true,
+                    "port": 443,
+                    "sSLInfo": {
+                        "ciphers": [],
+                        "clientAuthEnabled": "false",
+                        "enabled": "true",
+                        "ignoreValidationErrors": false,
+                        "protocols": []
+                    }
+                }
+            ],
+            "caches": [],
+            "kvms": [
+                {
+                    "name": "pingstatus-baas-v1",
+                    "encrypted": false,
+                    "entry": [
+                        {
+                            "name": "target.basepath",
+                            "value": "kurtkanaskietraining/crm"
+                        },
+                        {
+                            "name": "target.pathsuffix",
+                            "value": "status"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "orgConfig": {
+        "apiProducts": [
+            {
+                "name": "pingstatus-baas-v1-product-test",
+                "apiResources": [
+                    "/",
+                    "/**"
+                ],
+                "approvalType": "auto",
+                "attributes": [
+                    {
+                        "name": "custom.description",
+                        "value": "Product to test pingstatus-baas-v1 API for test env with attributes"
+                    }
+                ],
+                "description": "Product to test pingstatus-baas-v1 API in test env",
+                "displayName": "pingstatus-baas-v1-product-test",
+                "environments": [
+                    "test"
+                ],
+                "proxies": [
+                    "pingstatus-baas-v1",
+                    "oauth-baas-v1"
+                ],
+                "quota": "10000",
+                "quotaInterval": "1",
+                "quotaTimeUnit": "month",
+                "scopes": []
+            },
+            {
+                "name": "pingstatus-baas-v1-product-prod",
+                "apiResources": [
+                    "/",
+                    "/**"
+                ],
+                "approvalType": "auto",
+                "attributes": [
+                    {
+                        "name": "custom.description",
+                        "value": "Product to test pingstatus-baas-v1 API for prod env with attributes"
+                    }
+                ],
+                "description": "Product to test pingstatus-baas-v1 API in prod env",
+                "displayName": "pingstatus-baas-v1-product-prod",
+                "environments": [
+                    "prod"
+                ],
+                "proxies": [
+                    "pingstatus-baas-v1",
+                    "oauth-baas-v1"
+                ],
+                "quota": "10000",
+                "quotaInterval": "1",
+                "quotaTimeUnit": "month",
+                "scopes": []
+            }        
+        ],
+        "developers": [
+            {
+                "email": "kurtkanaskie+app@google.com",
+                "firstName": "Kurt App",
+                "lastName": "Kanaskie",
+                "userName": "kurtappkanaskie",
+                "attributes": [
+                    {
+                        "name": "note",
+                        "value": "developer+suffix@google.com is fixed"
+                    }
+                ]
+            }
+        ],
+        "developerApps": {
+            "kurtkanaskie+app@google.com": [
+                {
+                    "name": "pingstatus-baas-v1-app-test",
+                    "apiProducts": [ "pingstatus-baas-v1-product-test" ],
+                    "callbackUrl": "NA",
+                    "scopes": [],
+                    "attributes": [
+                        {
+                            "name": "custom.privacy",
+                            "value": "confidential"
+                        }
+                    ]
+                },
+                {
+                    "name": "pingstatus-baas-v1-app-prod",
+                    "apiProducts": [ "pingstatus-baas-v1-product-prod" ],
+                    "callbackUrl": "NA",
+                    "scopes": [],
+                    "attributes": [
+                        {
+                            "name": "custom.privacy",
+                            "value": "confidential"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,28 @@
+[
+    {
+        "name": "oauth-v2-product-APIGEE_ENVIRONMENT",
+        "apiResources": [
+            "/",
+            "/**"
+        ],
+        "approvalType": "auto",
+        "attributes": [
+            {
+                "name": "custom.description",
+                "value": "Product to test oauth-v2 API for APIGEE_ENVIRONMENT env with attributes"
+            }
+        ],
+        "description": "Product to test oauth-v2 API in APIGEE_ENVIRONMENT env",
+        "displayName": "oauth-v2-product-APIGEE_ENVIRONMENT",
+        "environments": [
+            "APIGEE_ENVIRONMENT"
+        ],
+        "proxies": [
+            "oauth-v2"
+        ],
+        "quota": "10000",
+        "quotaInterval": "1",
+        "quotaTimeUnit": "month",
+        "scopes": []
+    }
+]

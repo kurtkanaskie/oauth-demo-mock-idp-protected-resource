@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-OauthError">
+    <DisplayName>EV-OauthError</DisplayName>
+    <JSONPayload>
+        <Variable name="oauth_error">
+            <JSONPath>$.ErrorCode</JSONPath>
+        </Variable>
+        <Variable name="oauth_error_description">
+            <JSONPath>$.Error</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">response</Source>
+</ExtractVariables>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Debug">
+  <DisplayName>AM-Debug</DisplayName>
+  <AssignVariable>
+    <Name>debug_client_ip</Name>
+    <Ref>client.ip</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>debug_x_forwarded_for</Name>
+    <Ref>request.header.x-forwarded-for</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>debug_authorization</Name>
+    <Ref>request.header.authorization</Ref>
+  </AssignVariable>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

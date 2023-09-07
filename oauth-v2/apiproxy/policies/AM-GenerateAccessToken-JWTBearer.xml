@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-GenerateAccessToken-JWTBearer">
+  <Set>
+    <Headers/>
+    <Payload contentType="application/json">
+{
+    "api_product_list": "{oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.api_product_list}",
+    "api_product_list_json": [
+        "{oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.api_product_list_json}"
+    ],
+    "organization_name": "{organization.name}",
+    "developer.email": "{apigee.developer.email}",
+    "token_type": "Bearer",
+    "issued_at": {oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.issued_at},
+    "expires_in": {oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.expires_in},
+    "client_id": "{apigee.client_id}",
+    "access_token": "{apigee.access_token}",
+    "application_name": "{apigee.developer.app.name}",
+    "scope": "{oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.scope}",
+    "status": "{oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.status}",
+    "jwtAssertion":"{oauthv2accesstoken.OA-GenerateAccessToken-JWTBearerAuthorization.jwtAssertion}"
+}
+</Payload>
+  </Set>
+</AssignMessage>

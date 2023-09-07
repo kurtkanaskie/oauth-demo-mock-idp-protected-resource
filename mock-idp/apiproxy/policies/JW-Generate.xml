@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateJWT async="false" continueOnError="false" enabled="true" name="JW-Generate">
+    <Algorithm>HS256</Algorithm>
+    <SecretKey>
+        <Value ref="private.key"/>
+    </SecretKey>
+    <Subject>subject-subject</Subject>
+    <Issuer>urn://apigee-edge-JWT-policy-test</Issuer>
+    <Audience>audience1,audience2</Audience>
+    <ExpiresIn>1m</ExpiresIn>
+    <AdditionalClaims>
+        <Claim name="additional-claim-name" type="string">additional-claim-value-goes-here</Claim>
+    </AdditionalClaims>
+    <OutputVariable>jwt_variable</OutputVariable>
+</GenerateJWT>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-StatusResponse">
+    <Set>
+        <Payload contentType="application/json">
+{
+  "uri" : "{client.scheme}://{request.header.host}/{request.uri}",
+  "status" : "OK"
+}
+</Payload>
+    </Set>
+</AssignMessage>
