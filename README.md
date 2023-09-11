@@ -8,6 +8,11 @@ This group of example proxies supports Client Credentials and Password grant typ
 - The [pingstatus-v1-oauth](pingstatus-v1-oauth/README.md) proxy is the protected resource.
 - The [pingstatus-v1-mock](pingstatus-v1-mock/README.md) proxy is the mock backend for the [pingstatus-v1-oauth](pingstatus-v1-oauth/README.md) proxy.
 
+## Sequence Diagrams
+![Client Credentials](ClientCredentialsGrant.png)
+
+![Password Grant](PasswordGrant.png)
+
 ## Deploy and Test
 Install all proxies and related test artifacts such as API Product, Developer and Applications. 
 
@@ -27,6 +32,5 @@ This material is copyright 2019, Google LLC. and is licensed under the Apache 2.
 This code is open source.
 
 ## TODO
-* Sequence diagrams
-* Client Credentials local to oauth-v2 proxy, don't use mock-idp
+* Document use of request header x-jwt and JWT flows.
 * OAS for oauth-v2
