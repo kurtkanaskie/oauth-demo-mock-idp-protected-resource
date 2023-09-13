@@ -44,10 +44,6 @@
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.options>override</apigee.options>
-				<!--
-				<apigee.config.dir>target/resources/edge</apigee.config.dir>
-				<apigee.config.exportDir>target/test/integration</apigee.config.exportDir>
-				-->
 				<apigee.config.dir>${target.root.dir}/resources/edge</apigee.config.dir>
 				<apigee.config.exportDir>${target.root.dir}/test/integration</apigee.config.exportDir>
 				<apigee.config.options>update</apigee.config.options>
