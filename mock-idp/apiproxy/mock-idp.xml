@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="4" name="mock-idp">
-    <Description>Combined example using oauth-v2, mock-idp, pingstatus-v1-mock, pingstatus-v1-oauth - DESCRIPTION</Description>
-</APIProxy>

@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
   <version>1.0</version>
   <name>oauth-v2-demo-mock-idp</name>
-  <description>OAuth V2 Proxy for Client Credentials and Password Grant using oauth-v2, mock-idp and pingstatus-v1-oauth</description>
+  <description>OAuth Proxy for Client Credentials and Password Grant using oauth-v1, idp-v1-mock, pingstatus-oauth-v1 and pingstatus-v1-mock</description>
   
   <!-- Caveat: 
       config items that use a path to a file (e.g. JavaScript, PropertySet)
@@ -18,9 +18,9 @@
       module: "mvn -P dev install" - defaults to ..
   -->
   <modules>
-    <module>mock-idp</module>
-    <module>oauth-v2</module>
+    <module>idp-v1-mock</module>
+    <module>oauth-v1</module>
     <module>pingstatus-v1-mock</module>
-    <module>pingstatus-v1-oauth</module>
+    <module>pingstatus-oauth-v1</module>
   </modules>
 </project>

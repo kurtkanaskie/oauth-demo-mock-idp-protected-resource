@@ -79,7 +79,7 @@
     </Flow>
   </Flows>
   <HTTPProxyConnection>
-    <BasePath>/pingstatus-mock/v1</BasePath>
+    <BasePath>/pingstatus-v1-mock</BasePath>
   </HTTPProxyConnection>
   <RouteRule name="noroute"/>
 </ProxyEndpoint>

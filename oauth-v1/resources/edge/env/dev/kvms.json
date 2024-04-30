@@ -1,0 +1,38 @@
+[
+    {
+        "name": "oauth-v1",
+        "encrypted": true,
+        "entry": [
+            {
+                "name": "target.basepath",
+                "value": "idp-v1-mock"
+            },
+            {
+                "name": "target.tokenPathsuffix",
+                "value": "token"
+            },
+            {
+                "name": "target.clientId",
+                "value": "C4rfB5CKEet9RrFWpNOuqguRAGUUrqxEVqxJY5inZfxPUo35"
+            },
+            {
+                "name": "target.clientSecret",
+                "value": "E4PSHQ15dl1fDAfv2g267fpSu2jHnlgvDnYPU8XLomQNsPDBIqLgzPbFcXZsC5Ar"
+            },
+            {
+                "name": "target.credentials",
+                "value": "C4rfB5CKEet9RrFWpNOuqguRAGUUrqxEVqxJY5inZfxPUo35,E4PSHQ15dl1fDAfv2g267fpSu2jHnlgvDnYPU8XLomQNsPDBIqLgzPbFcXZsC5Ar"
+            }
+        ]
+    },
+    {
+        "name": "oauth-v1-jwt-key",
+        "encrypted": true,
+        "entry": [
+            {
+                "name": "key",
+                "value": "SuperSecretKeyThatIsSuitableForHS256"
+            }
+        ]
+    }
+]

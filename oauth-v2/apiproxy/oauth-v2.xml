@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="30" name="oauth-v2">
-    <Description>Combined example using oauth-v2, mock-idp, pingstatus-v1-mock, pingstatus-v1-oauth (header x-jwt to create a JWT.) - DESCRIPTION</Description>
-</APIProxy>

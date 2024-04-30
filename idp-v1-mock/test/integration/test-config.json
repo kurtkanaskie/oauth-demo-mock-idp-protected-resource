@@ -1,0 +1,11 @@
+{
+    "apiconfig": {
+        "domain": "API_NORTHBOUND_DOMAIN",
+        "basepath": "/idp-v1-mock",
+        "apiproxy": "idp-v1-mock",
+		"userUsername" : "REPLACE_USERNAME",
+        "userPassword" : "REPLACE_PASSWORD",
+        "product":"idp-v1-mock-product-APIGEE_ENVIRONMENT",
+        "app":"idp-v1-mock-app-APIGEE_ENVIRONMENT"
+    }
+}

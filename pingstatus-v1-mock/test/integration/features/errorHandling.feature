@@ -9,7 +9,7 @@ Feature: Error handling
         Given I GET /foo
         Then response code should be 404
         And response header Content-Type should be application/json
-        And response body path $.error should be Not found GET /pingstatus-mock/v1/foo
+        And response body path $.error should be Not found GET /pingstatus-v1-mock/foo
         
     @400
     Scenario: GET /400 request not found

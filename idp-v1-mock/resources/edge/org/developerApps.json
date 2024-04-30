@@ -1,0 +1,10 @@
+{
+    "cicd-developer-APIGEE_ENVIRONMENT@google.com": [
+        {
+            "name": "idp-v1-mock-app-APIGEE_ENVIRONMENT",
+            "apiProducts": [ "idp-v1-mock-product-APIGEE_ENVIRONMENT" ],
+            "callbackUrl": "NA",
+            "scopes": []
+        }
+    ]
+}
