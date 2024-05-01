@@ -1,5 +1,5 @@
 # Ping and Status OAuth protected resources
-Used with [pingstatus-v1-mock](../pingstatus-v1-mock/README.md), [oauth-v2](../oauth-v2/README.md) and [mock-idp](../mock-idp/README.md) proxies.
+Used with [pingstatus-v1-mock](../pingstatus-v1-mock/README.md), [oauth-v1](../oauth-v1/README.md) and [idp-v1-mock](../idp-v1-mock/README.md) proxies.
 
 ## All at once
 Create proxy, product and app (only do app once since keys are used as the IdP keys in config for oauth-v1 proxy)

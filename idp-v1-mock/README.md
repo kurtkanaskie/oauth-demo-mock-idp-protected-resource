@@ -1,6 +1,6 @@
 # OAuth Mock IdP
 Supports Client Credentials and Password Grant flows.\
-Used by [oauth-v2](../oauth-v2/README.md) proxy.
+Used by [oauth-v1](../oauth-v1/README.md) proxy.
 
 ## All at once
 Create proxy, product and app (only do app once since keys are used as the IdP keys in config for oauth-v1 proxy)

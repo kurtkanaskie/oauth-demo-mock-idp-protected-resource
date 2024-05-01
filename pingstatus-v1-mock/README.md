@@ -1,5 +1,5 @@
 # Ping and Status Mock Backend
-Used by [pingstatus-v1-oauth](../pingstatus-v1-oauth/README.md) proxy.
+Used by [pingstatus-oauth-v1](../pingstatus-oauth-v1/README.md) proxy.
 
 
 ## All at once

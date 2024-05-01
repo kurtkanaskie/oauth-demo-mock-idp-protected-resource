@@ -1,6 +1,6 @@
-# OAuth V2 Proxy 
+# OAuth V1 Proxy 
 Supports Client Credentials and Password Grant flows with an external IdP.\
-Used with [mock-idp](../mock-idp/README.md) and for [pingstatus-v1-oauth](../pingstatus-v1-oauth/README.md) proxies.
+Used with [idp-v1-mock](../idp-v1-mock/README.md) and for [pingstatus-oauth-v1](../pingstatus-oauth-v1/README.md) proxies.
 
 **NOTE:** \
 The KVM associated with this proxy has hard coded credentials from the `mock-ipd-app-dev`.\
