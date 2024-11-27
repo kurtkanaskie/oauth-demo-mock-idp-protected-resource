@@ -8,6 +8,10 @@
         "approvalType": "auto",
         "attributes": [
             {
+              "name": "access",
+              "value": "public"
+            },
+            {
                 "name": "custom.description",
                 "value": "Product to test pingstatus-oauth-v1 API for APIGEE_ENVIRONMENT env with attributes"
             }
@@ -24,6 +28,6 @@
         "quota": "10000",
         "quotaInterval": "1",
         "quotaTimeUnit": "month",
-        "scopes": []
+        "scopes": ["READ","WRITE","ADMIN"]
     }
 ]

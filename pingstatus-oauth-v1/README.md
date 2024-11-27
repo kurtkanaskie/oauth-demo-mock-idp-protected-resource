@@ -5,12 +5,12 @@ Used with [pingstatus-v1-mock](../pingstatus-v1-mock/README.md), [oauth-v1](../o
 Create proxy, product and app (only do app once since keys are used as the IdP keys in config for oauth-v1 proxy)
 ```
 export PROFILE=dev
-mvn -P $PROFILE install
+mvn -P  $PROFILE -Dbearer=$(gcloud auth print-access-token)install
 ```
 
 ### Export Apps and run the tests for iterations
 ```
-mvn -P $PROFILE \
+mvn -P $PROFILE -Dbearer=$(gcloud auth print-access-token) \
     process-resources \
     apigee-config:exportAppKeys \
     frontend:npm@integration \
@@ -61,6 +61,7 @@ mvn -P $PROFILE install \
 mvn -P $PROFILE validate # (runs all validate phases: lint, apigeelint)
 mvn -P $PROFILE frontend:npm@apigeelint
 mvn -P $PROFILE frontend:npm@integration
+mvn -P test resources:copy-resources replacer:replace apigee-config:resourcefiles apigee-config:targetservers -Dapigee.config.dir=target/resources/edge -Dskip.clean=true 
 ```
 
 ### Other discrete npm commands

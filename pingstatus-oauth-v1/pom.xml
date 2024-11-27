@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>apigee</groupId>
 	<artifactId>pingstatus-oauth-v1</artifactId>
-	<version>-</version>
+	<version>1.0</version>
 	<name>pingstatus-oauth-v1</name>
 	<packaging>pom</packaging>
 
@@ -50,12 +50,65 @@
 				<apigee.org>apigeex-mint-kurt</apigee.org>
 				<apigee.env>dev</apigee.env>
 				<apigee.username>cicd-dev-service-account@apigeex-mint-kurt.iam.gserviceaccount.com</apigee.username>
+				<apigee.bearer>${bearer}</apigee.bearer> <!-- overrides SA file -Dbearer=$(gcloud auth print-access-token) -->
 				<apigee.serviceaccount.file>/Users/kurtkanaskie/work/APIGEEX/SAs/apigeex-mint-kurt-cicd-dev-service-account.json</apigee.serviceaccount.file>
-				<api.northbound.domain>psc-xapi-dev.kurtkanaskie.net</api.northbound.domain>
+				<api.northbound.domain>mp-xapi-dev.kurtkanaskie.net</api.northbound.domain>
 				<!-- Hack to specify multiple tags -->
 				<api.testtag>' or @cors or @health or @errorHandling or @WIP or '</api.testtag>
 				<!-- Custom variables for testing -->
-				<oauth.domain>psc-xapi-dev.kurtkanaskie.net</oauth.domain>
+				<oauth.domain>xapi-dev.kurtkanaskie.net</oauth.domain>
+				<oauth.basepath>/oauth/v1</oauth.basepath>
+				<user.username>demouser</user.username>
+				<user.password>demouser1</user.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<apigee.profile>test</apigee.profile>
+				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
+				<apigee.apiversion>v1</apigee.apiversion>
+				<apigee.options>override</apigee.options>
+				<apigee.config.dir>${target.root.dir}/resources/edge</apigee.config.dir>
+				<apigee.config.exportDir>${target.root.dir}/test/integration</apigee.config.exportDir>
+				<apigee.config.options>update</apigee.config.options>
+				<apigee.app.ignoreAPIProducts>true</apigee.app.ignoreAPIProducts>
+				<!-- -->
+				<!-- Override on command line or replace with your values -->
+				<apigee.org>apigeex-mint-kurt</apigee.org>
+				<apigee.env>test</apigee.env>
+				<apigee.username>cicd-test-service-account@apigeex-mint-kurt.iam.gserviceaccount.com</apigee.username>
+				<apigee.serviceaccount.file>/Users/kurtkanaskie/work/APIGEEX/SAs/apigeex-mint-kurt-cicd-test-service-account.json</apigee.serviceaccount.file>
+				<api.northbound.domain>mp-xapi-test.kurtkanaskie.net</api.northbound.domain>
+				<api.testtag>' or @intg or @health or @errorHandling or @WIP or '</api.testtag>
+				<!-- Custom variables for testing -->
+				<oauth.domain>mp-xapi-test.kurtkanaskie.net</oauth.domain>
+				<oauth.basepath>/oauth/v1</oauth.basepath>
+				<user.username>demouser</user.username>
+				<user.password>demouser1</user.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<apigee.profile>prod</apigee.profile>
+				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
+				<apigee.apiversion>v1</apigee.apiversion>
+				<apigee.options>override</apigee.options>
+				<apigee.config.dir>${target.root.dir}/resources/edge</apigee.config.dir>
+				<apigee.config.exportDir>${target.root.dir}/test/integration</apigee.config.exportDir>
+				<apigee.config.options>update</apigee.config.options>
+				<apigee.app.ignoreAPIProducts>true</apigee.app.ignoreAPIProducts>
+				<!-- -->
+				<!-- Override on command line or replace with your values -->
+				<apigee.org>apigeex-mint-kurt</apigee.org>
+				<apigee.env>prod</apigee.env>
+				<apigee.username>cicd-prod-service-account@apigeex-mint-kurt.iam.gserviceaccount.com</apigee.username>
+				<apigee.serviceaccount.file>/Users/kurtkanaskie/work/APIGEEX/SAs/apigeex-mint-kurt-cicd-pord-service-account.json</apigee.serviceaccount.file>
+				<api.northbound.domain>mp-xapi.kurtkanaskie.net</api.northbound.domain>
+				<api.testtag>' or @intg or @health or @errorHandling or @WIP or '</api.testtag>
+				<!-- Custom variables for testing -->
+				<oauth.domain>mp-xapi.kurtkanaskie.net</oauth.domain>
 				<oauth.basepath>/oauth/v1</oauth.basepath>
 				<user.username>demouser</user.username>
 				<user.password>demouser1</user.password>
@@ -88,10 +141,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- copy the full apiproxy folder to target folder -->
+			<!-- prefix: resources - copy the full apiproxy folder to target folder -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<id>copy-resources</id>
@@ -99,27 +153,28 @@
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
-						<configuration>
-							<overwrite>true</overwrite>
-							<resources>
-								<resource>
-									<!--source -->
-									<directory>${project.root.dir}</directory>
-									<filtering>true</filtering>
-									<includes>
-										<include>resources/**</include>
-										<include>apiproxy/**</include>
-										<include>test/integration/**</include>
-									</includes>
-								</resource>
-							</resources>
-							<!--target -->
-							<outputDirectory>${target.root.dir}</outputDirectory>
-						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<overwrite>true</overwrite>
+					<resources>
+						<resource>
+							<!--source -->
+							<directory>${project.root.dir}</directory>
+							<filtering>true</filtering>
+							<includes>
+								<include>resources/**</include>
+								<include>apiproxy/**</include>
+								<include>test/integration/**</include>
+							</includes>
+						</resource>
+					</resources>
+					<!--target -->
+					<outputDirectory>${target.root.dir}</outputDirectory>
+				</configuration>
 			</plugin>
 
+			<!-- prefix: replacer - Do replacements -->
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
@@ -136,7 +191,7 @@
 				<configuration>
 					<basedir>${target.root.dir}</basedir>
 					<includes>
-						<include>apiproxy/pingstatus-v1-oauth.xml</include>
+						<include>apiproxy/pingstatus-oauth-v1.xml</include>
 						<include>apiproxy/proxies/default.xml</include>
 						<include>test/integration/test-config.json</include>
 						<include>resources/edge/env/*/targetServers.json</include>
@@ -159,7 +214,7 @@
 							<value>${oauth.basepath}</value>
 						</replacement>
 						<replacement>
-							<token>@DESCRIPTION</token>
+							<token>DESCRIPTION</token>
 							<value>commit ${commit} from ${branch} branch by ${user.name}</value>
 						</replacement>
 						<replacement>

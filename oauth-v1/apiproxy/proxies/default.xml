@@ -30,6 +30,21 @@
             <Description/>
             <Request>
                 <Step>
+                    <Name>KV-config-values</Name>
+                </Step>
+                <Step>
+                    <Name>AM-config-values</Name>
+                </Step>
+                <Step>
+                    <Name>SC-AuthenticateClient</Name>
+                </Step>
+                <Step>
+                    <Name>EV-TokenParams</Name>
+                </Step>
+                <Step>
+                    <Name>JS-AdjustExpiryValues</Name>
+                </Step>
+                <Step>
                     <Condition>(request.header.x-jwt != true)</Condition>
                     <Name>OA-GenerateAccessToken-ClientCredentials</Name>
                 </Step>
@@ -273,6 +288,8 @@
     </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/oauth/v1</BasePath>
+        <VirtualHost>secure</VirtualHost>
+        <VirtualHost>secure-one-way</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="NoRoute"/>
 </ProxyEndpoint>

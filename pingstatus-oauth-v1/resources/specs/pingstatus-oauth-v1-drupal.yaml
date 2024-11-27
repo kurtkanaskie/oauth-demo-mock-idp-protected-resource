@@ -9,7 +9,7 @@ info:
   contact:
     email: kurtkanaskie@google.com
 servers:
-  - url: https://API_NORTHBOUND_DOMAIN/pingstatus-oauth/v1
+  - url: https://xapi-test.kurtkanaskie.net/pingstatus-oauth/v1
 paths:
   /ping:
     get:

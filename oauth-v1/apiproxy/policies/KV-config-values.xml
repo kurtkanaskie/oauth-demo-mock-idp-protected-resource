@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KV-config-values" mapIdentifier="oauth-v1">
-  <ExpiryTimeInSecs>60</ExpiryTimeInSecs>
-  <Get assignTo="private.flow.target.basepath" index="1">
-    <Key>
-      <Parameter>target.basepath</Parameter>
-    </Key>
-  </Get>
-  <Get assignTo="private.flow.target.tokenPathsuffix">
-    <Key>
-      <Parameter>target.tokenPathsuffix</Parameter>
-    </Key>
-  </Get>
-  <!-- 
-  <Get assignTo="flow.target.clientId" index="1">
-    <Key>
-      <Parameter>target.clientId</Parameter>
-    </Key>
-  </Get>
-  <Get assignTo="flow.target.clientSecret" index="1">
-    <Key>
-      <Parameter>target.clientSecret</Parameter>
-    </Key>
-  </Get>
-  -->
-  <Get assignTo="private.flow.target.clientId" index="1">
-    <Key>
-      <Parameter>target.credentials</Parameter>
-    </Key>
-  </Get>
-  <Get assignTo="private.flow.target.clientSecret" index="2">
-    <Key>
-      <Parameter>target.credentials</Parameter>
-    </Key>
-  </Get>
-  <!-- BUG: Can't mix no index with an index
-  <Get assignTo="flow.target.credentials">
-    <Key>
-      <Parameter>target.credentials</Parameter>
-    </Key>
-  </Get>
-  -->
-  <!-- Don't do this unless KVM has values, otherwise messes up GetLogValues
-  <Get assignTo="logging.log" index="1">
-    <Key>
-      <Parameter>logging.log</Parameter>
-    </Key>
+    <DisplayName>KV-config-values</DisplayName>
+    <Properties/>
+    <ExpiryTimeInSecs>60</ExpiryTimeInSecs>
+    <Get assignTo="private.flow.target.basepath" index="1">
+        <Key>
+            <Parameter>target.basepath</Parameter>
+        </Key>
     </Get>
-    <Get assignTo="logging.level" index="1">
-      <Key>
-        <Parameter>logging.level</Parameter>
-      </Key>
+    <Get assignTo="private.flow.target.tokenPathsuffix">
+        <Key>
+            <Parameter>target.tokenPathsuffix</Parameter>
+        </Key>
     </Get>
-  -->
-<Scope>environment</Scope>
+    <!--
+    <Get assignTo="flow.target.clientId" index="1">
+  <Key>
+    <Parameter>target.clientId</Parameter>
+  </Key>
+</Get>
+<Get assignTo="flow.target.clientSecret" index="1">
+  <Key>
+    <Parameter>target.clientSecret</Parameter>
+  </Key>
+</Get>
+    -->
+    <Get assignTo="private.flow.target.clientId" index="1">
+        <Key>
+            <Parameter>target.credentials</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.flow.target.clientSecret" index="2">
+        <Key>
+            <Parameter>target.credentials</Parameter>
+        </Key>
+    </Get>
+    <!-- BUG: Can't mix no index with an index
+    <Get assignTo="flow.target.credentials">
+<Key>
+  <Parameter>target.credentials</Parameter>
+</Key>
+</Get>
+    -->
+    <!-- Don't do this unless KVM has values, otherwise message up GetLogValues
+    <Get assignTo="logging.log" index="1">
+<Key>
+  <Parameter>logging.log</Parameter>
+</Key>
+</Get>
+<Get assignTo="logging.level" index="1">
+  <Key>
+    <Parameter>logging.level</Parameter>
+  </Key>
+</Get>
+    -->
+    <Scope>environment</Scope>
 </KeyValueMapOperations>

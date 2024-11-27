@@ -1,11 +1,11 @@
 [
     {
-        "name": "oauth-v2",
+        "name": "oauth-v1",
         "encrypted": true,
         "entry": [
             {
                 "name": "target.basepath",
-                "value": "mock-idp/v1"
+                "value": "idp-v1-mock"
             },
             {
                 "name": "target.tokenPathsuffix",
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "name": "oauth-v2-jwt-key",
+        "name": "oauth-v1-jwt-key",
         "encrypted": true,
         "entry": [
             {

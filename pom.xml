@@ -10,13 +10,6 @@
   <name>oauth-v2-demo-mock-idp</name>
   <description>OAuth Proxy for Client Credentials and Password Grant using oauth-v1, idp-v1-mock, pingstatus-oauth-v1 and pingstatus-v1-mock</description>
   
-  <!-- Caveat: 
-      config items that use a path to a file (e.g. JavaScript, PropertySet)
-      will need to be prefixed from the local module with "../" and from here with "./"
-      The replacer is being used to do this via the target.root.prefix variable
-      here: "mvn -P dev install -Dtarget.root.prefix=."
-      module: "mvn -P dev install" - defaults to ..
-  -->
   <modules>
     <module>idp-v1-mock</module>
     <module>oauth-v1</module>

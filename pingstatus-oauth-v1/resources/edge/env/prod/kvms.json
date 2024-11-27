@@ -1,11 +1,11 @@
 [
     {
-        "name": "pingstatus-v1-oauth",
+        "name": "pingstatus-oauth-v1",
         "encrypted": false,
         "entry": [
             {
                 "name": "target.basepath",
-                "value": "pingstatus-mock/v1"
+                "value": "pingstatus-v1-mock"
             }
         ]
     }

@@ -9,9 +9,6 @@
         <Step>
             <Name>AM-set-standard-error-response</Name>
         </Step>
-        <Step>
-            <Name>AM-AddCORS</Name>
-        </Step>
         <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
     <FaultRules>
@@ -25,6 +22,14 @@
     </FaultRules>
     <PreFlow name="PreFlow">
         <Request>
+           <!--  
+           <Step>
+                <Name>FC-adopt-oauth-token-v1</Name>
+            </Step>
+            -->
+            <Step>
+                <Name>AM-Debug</Name>
+            </Step>
             <Step>
                 <Condition>(request.verb != "OPTIONS")</Condition>
                 <Name>OA-verify-access-token</Name>
@@ -38,11 +43,7 @@
     </PreFlow>
     <PostFlow name="PostFlow">
         <Request/>
-        <Response>
-            <Step>
-                <Name>AM-AddCORS</Name>
-            </Step>
-        </Response>
+        <Response/>
     </PostFlow>
     <Flows>
         <Flow name="ping">
@@ -71,11 +72,18 @@
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "GET")</Condition>
         </Flow>
-        <Flow name="CORS">
-            <Description/>
+        <Flow name="status">
+            <Description>back end health check and scope</Description>
             <Request/>
-            <Response/>
-            <Condition>(proxy.pathsuffix MatchesPath "/**") and (request.verb = "OPTIONS")</Condition>
+            <Response>
+                <Step>
+                    <Name>JS-set-time-data</Name>
+                </Step>
+                <Step>
+                    <Name>AM-create-status-response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="catch all">
             <Description>Catch any unmatched calls and raise fault</Description>

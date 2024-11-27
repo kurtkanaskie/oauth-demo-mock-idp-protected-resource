@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <GenerateJWT async="false" continueOnError="false" enabled="true" name="JW-Create">
+  <DisplayName>JW-Create</DisplayName>
   <!-- https://tools.ietf.org/id/draft-ietf-oauth-jwt-bearer-02.html -->
   <!--
     The JWT MUST contain an iss (issuer) claim that contains a unique identifier for the entity that issued the JWT.

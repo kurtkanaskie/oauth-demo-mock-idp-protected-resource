@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage continueOnError="false" enabled="true" name="AM-config-values">
-  <AssignVariable>
-    <Name>flow.target.basepath</Name>
-    <Ref>private.flow.target.basepath</Ref>
-  </AssignVariable>
-  <AssignVariable>
-    <Name>flow.target.tokenPathsuffix</Name>
-    <Ref>private.flow.target.tokenPathsuffix</Ref>
-  </AssignVariable>
-  <AssignVariable>
-    <Name>flow.target.clientId</Name>
-    <Ref>private.flow.target.clientId</Ref>
-  </AssignVariable>
-  <AssignVariable>
-    <Name>flow.target.clientSecret</Name>
-    <Ref>private.flow.target.clientSecret</Ref>
-  </AssignVariable>
+    <DisplayName>AM-config-values</DisplayName>
+    <AssignVariable>
+        <Name>flow.target.basepath</Name>
+        <Ref>private.flow.target.basepath</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.target.tokenPathsuffix</Name>
+        <Ref>private.flow.target.tokenPathsuffix</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.target.clientId</Name>
+        <Ref>private.flow.target.clientId</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.target.clientSecret</Name>
+        <Ref>private.flow.target.clientSecret</Ref>
+    </AssignVariable>
 </AssignMessage>

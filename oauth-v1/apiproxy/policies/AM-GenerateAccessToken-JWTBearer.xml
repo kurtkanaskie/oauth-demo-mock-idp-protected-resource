@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage async="false" continueOnError="false" enabled="true" name="AM-GenerateAccessToken-JWTBearer">
+  <DisplayName>AM-GenerateAccessToken-JWTBearer</DisplayName>
   <Set>
     <Headers/>
     <Payload contentType="application/json">

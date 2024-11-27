@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-AuthenticateUser">
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-AuthenticateClient">
+  <DisplayName>SC-AuthenticateClient</DisplayName>
+  <Properties/>
+  <!--<Request clearPayload="false" variable="authenticate.request">-->
   <Request>
     <Set>
       <Headers>
         <Header name="Content-Type">application/x-www-form-urlencoded</Header>
       </Headers>
       <FormParams>
-        <FormParam name="grant_type">password</FormParam>
+        <FormParam name="grant_type">client_credentials</FormParam>
         <FormParam name="client_id">{flow.target.clientId}</FormParam>
         <FormParam name="client_secret">{flow.target.clientSecret}</FormParam>
-        <FormParam name="username">{externalUsername}</FormParam>
-        <FormParam name="password">{externalPassword}</FormParam>
       </FormParams>
       <Verb>POST</Verb>
       <Path/>

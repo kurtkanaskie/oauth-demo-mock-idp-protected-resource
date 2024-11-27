@@ -5,11 +5,11 @@ info:
   description: |
     Health checks for proxy and target backend, using security schemes Client Credentials, Password and Authorization Code.
 
-    See: [OAuth guide](https://developerx.kurtkanaskie.net/oauth)
+    See: [OAuth guide](https://developeri.kurtkanaskie.net/oauth)
   contact:
     email: kurtkanaskie@google.com
 servers:
-  - url: https://API_NORTHBOUND_DOMAIN/pingstatus-oauth/v1
+  - url: https://xapi-test.kurtkanaskie.net/pingstatus-oauth/v1
 paths:
   /ping:
     get:
@@ -59,26 +59,28 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 security:
+  - ClientCredentials: []
+  - Password: []
   - AuthorizationCode: []
 components:
   securitySchemes:
     ClientCredentials:
       type: oauth2
-      description: See https://developerx.kurtkanaskie.net/get-started-client_credentials
+      description: See https://developeri.kurtkanaskie.net/get-started-client_credentials
       flows: 
         clientCredentials: 
           tokenUrl: https://xapi-test.kurtkanaskie.net/oauth/v1/token
           scopes: {}
     Password:
       type: oauth2
-      description: See https://developerx.kurtkanaskie.net/get-started-password
+      description: See https://developeri.kurtkanaskie.net/get-started-password
       flows: 
         password:
           tokenUrl: https://xapi-test.kurtkanaskie.net/oauth/v1/token
           scopes: {}
     AuthorizationCode:
       type: oauth2
-      description: See https://developerx.kurtkanaskie.net/get-started-authoriztion-code
+      description: See https://developeri.kurtkanaskie.net/get-started-authoriztion-code
       flows: 
         authorizationCode:
           tokenUrl: https://xapi-test.kurtkanaskie.net/oidc-google/v1/oauth/token

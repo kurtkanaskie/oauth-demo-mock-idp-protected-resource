@@ -3,8 +3,8 @@
 ## Overview
 This group of example proxies supports Client Credentials and Password grant types.
 
-- Client Credentials is supported directly with Apigee as the Application credential owner using the [oauth-v1](oauth-v1/README.md) proxy.
-- Password grant type is supported using the same [oauth-v1](oauth-v1/README.md) proxy and a mock IdP implemented in the [idp-v1-mock](idp-v1-mock/README.md) proxy.
+- A mock IdP implemented in the [idp-v1-mock](idp-v1-mock/README.md) proxy is used to simulate Client Credentials and Password grants.
+- Client Credentials and Password grants are supported using the [oauth-v1](oauth-v1/README.md) proxy and the mock IdP implemented.
 - The [pingstatus-oauth-v1](pingstatus-oauth-v1/README.md) proxy is the protected resource.
 - The [pingstatus-v1-mock](pingstatus-v1-mock/README.md) proxy is the mock backend for the [pingstatus-oauth-v1](pingstatus-oauth-v1/README.md) proxy.
 

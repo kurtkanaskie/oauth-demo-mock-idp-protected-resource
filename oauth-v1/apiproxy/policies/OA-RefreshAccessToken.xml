@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-RefreshAccessToken">
-  <Operation>RefreshAccessToken</Operation>
-  <!-- This is in millseconds, so expire in an hour -->
-  <ExpiresIn>3600000</ExpiresIn>
-  <RefreshTokenExpiresIn>36000000</RefreshTokenExpiresIn>
-  <GrantType>request.formparam.grant_type</GrantType>
-  <GenerateResponse enabled="true"/>
+    <DisplayName>OA-RefreshAccessToken</DisplayName>
+    <Operation>RefreshAccessToken</Operation>
+    <!-- This is in millseconds, so expire in an hour -->
+    <ExpiresIn>3600000</ExpiresIn>
+    <!-- This is in millseconds, so expire in 10 hours -->
+    <RefreshTokenExpiresIn>36000000</RefreshTokenExpiresIn>
+    <GrantType>request.formparam.grant_type</GrantType>
+    <GenerateResponse enabled="false"/>
+    <ReuseRefreshToken>true</ReuseRefreshToken>
 </OAuthV2>
